@@ -1,0 +1,74 @@
+###Get the service document
+
+http://localhost:4004/odata/v4/CatalogService
+
+###Get Service meta data
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Get all the employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?
+
+###Pagination - load data chunk by chunk
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=2
+
+###Filtering of data = WHERE Condition
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=salaryAmount ge 100000
+
+###Counting the records
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+### Get single record by key
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+
+### Get All POs
+http://localhost:4004/odata/v4/CatalogService/POs
+
+###Get Single PO
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC38052
+
+###Get the PO and its Items data together - Associations
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC38052?$expand=Items,PARTNER_GUID
+
+###POST - To Create New Employee
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "Jyothish",
+  "nameMiddle": "Kumar",
+  "nameLast": "Bandi",
+  "nameInitials": "B",
+  "sex": "M",
+  "language": "E",
+  "phoneNumber": "7013372335",
+  "email": "jyothish@gmail.com",
+  "loginName": "ANILJACK",
+  "Currency_code": "USD",
+  "salaryAmount": 100000,
+  "accountNumber": "222333444",
+  "bankId": "510000655",
+  "bankName": "ICICI Bank"
+}
+
+###Get to read the single employee
+GET http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+
+###Patch to update employee data
+PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/4b039a25-a193-48f7-8593-1a930d7a7c05
+Content-Type: application/json
+
+{
+    "salaryAmount": 98745621
+}
+
+###Delete Employee data
+DELETE http://localhost:4004/odata/v4/CatalogService/EmployeeSet/4b039a25-a193-48f7-8593-1a930d7a7c05
+
+### Calling an action 
+POST http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC38052/boost
+Content-Type: application/json
+
+{}
+
+###Calling CAP fucntions
+GET http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC38052/largestOrder()
