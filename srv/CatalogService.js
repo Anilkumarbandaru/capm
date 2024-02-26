@@ -4,9 +4,7 @@ module.exports = cds.service.impl(async function () {
 
     this.on('boost', async (req) => {
         console.log("Boosted");
-        // return {
-        //     "NODE_KEY":"DUMMY"
-        // }
+        
 
         try {
 
