@@ -1,6 +1,14 @@
 module.exports = cds.service.impl(async function () {
 
-    const { POs } = this.entities
+    const { POs, EmployeeSet } = this.entities
+
+
+    // Generic Handler - A developer get flexibility to attach their own code logic on top of CAPM provides
+    this.before(['CREATE','PATCH'], EmployeeSet, (req) => {
+        if(parseFloat(req.data.salaryAmount) >= 1000000){
+            req.error(500, "We cant change for the salary on above 1 Million")
+        }
+    })
 
     this.on('boost', async (req) => {
         console.log("Boosted");

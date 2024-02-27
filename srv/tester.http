@@ -44,7 +44,7 @@ Content-Type: application/json
   "email": "jyothish@gmail.com",
   "loginName": "ANILJACK",
   "Currency_code": "USD",
-  "salaryAmount": 100000,
+  "salaryAmount": 1000000,
   "accountNumber": "222333444",
   "bankId": "510000655",
   "bankName": "ICICI Bank"
@@ -80,4 +80,9 @@ GET http://localhost:4004/odata/v4/MyService/ProductOrderSet/74867AD200E41EDBA5D
 GET http://localhost:4004/odata/v4/MyService/ProductOrderSet/74867AD200E41EDBA5D8B06B26EBE052?$expand=PO_ORDERS
 
 
+### Complete Custom Entity which has structure from datta base and logic from our own handling
+GET http://localhost:4004/odata/v4/MyService/ReadEmployeeSrv
+
+###Get All POs using adpater proxy v2
+http://localhost:4004/v2/odata/v4/CatalogService/POs
 
