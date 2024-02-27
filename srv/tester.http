@@ -72,3 +72,12 @@ Content-Type: application/json
 
 ###Calling CAP fucntions
 GET http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC38052/largestOrder()
+
+### Getting Product Data from CDS Viewe
+GET http://localhost:4004/odata/v4/MyService/ProductOrderSet/74867AD200E41EDBA5D8B06B26EBE052
+
+### Lazy Loading
+GET http://localhost:4004/odata/v4/MyService/ProductOrderSet/74867AD200E41EDBA5D8B06B26EBE052?$expand=PO_ORDERS
+
+
+
